@@ -1,5 +1,15 @@
+import { addToCart } from "./addToCart.js";
+
 function renderProducts(list, container){
-    container.innerHTML = ""
+
+    container.addEventListener("click",(e)=>{
+        if(e.target.classList.contains("addToCart")){
+            addToCart(e.target.parentElement.id , list);
+        }
+
+    })
+    container.innerHTML = "";
+    
     list.forEach((product)=>{
         const card = document.createElement("div");
         card.classList.add("card","w-2/7","min-h-[450px]");
@@ -16,7 +26,8 @@ function renderProducts(list, container){
                             <h4 class="font-medium text-[20px] truncate">${product.description}</h4>
                             <span class="font-medium text-[20px] ">$199</span>
                         </div>
-                    </div>`;
+                    </div>
+                    <button class="w-30 h-15 bg-black text-white border-1 border-black flex justify-center items-center rounded-full addToCart">Add to cart</button>`;
 
         container.appendChild(card)
     })

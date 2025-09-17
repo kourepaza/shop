@@ -5,14 +5,13 @@ import { searchProduct } from "./searchProduct.js";
 
 
 
+
 const searchInput =document.querySelector(".searchInput")
 const productContainer = document.getElementById("productsContainer");
 const filterProducts =document.querySelectorAll(".filterProducts");
+export const data = await getProducts()
 
-
-
-
-const data = await getProducts()
+export const cart=[]
 renderProducts(data,productContainer);
 
 
